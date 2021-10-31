@@ -13,4 +13,8 @@ public class QueryGraphQL implements GraphQLQueryResolver {
     public Integer getSoma(Integer a, Integer b) {
         return a+b;
     }
+
+    public Cliente getCliente(){
+        return new Cliente("Jonatas", "jonataslaet@gmail.com");
+    }
 }
