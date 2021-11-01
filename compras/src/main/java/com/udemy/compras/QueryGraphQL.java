@@ -10,22 +10,11 @@ import java.util.List;
 @Component
 public class QueryGraphQL implements GraphQLQueryResolver {
 
-    @Autowired
-    private ClienteRepository clienteRepository;
-
     public String getHello(){
         return "Hello, graphql";
     }
 
     public Integer getSoma(Integer a, Integer b) {
         return a+b;
-    }
-
-    public Cliente getCliente(Long id){
-        return clienteRepository.findById(id).orElse(null);
-    }
-
-    public List<Cliente> getClientes(){
-        return clienteRepository.findAll();
     }
 }
