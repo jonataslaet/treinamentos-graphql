@@ -1,6 +1,7 @@
 package com.udemy.compras;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,6 +9,9 @@ import java.util.List;
 
 @Component
 public class QueryGraphQL implements GraphQLQueryResolver {
+
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     public String getHello(){
         return "Hello, graphql";
@@ -17,15 +21,11 @@ public class QueryGraphQL implements GraphQLQueryResolver {
         return a+b;
     }
 
-    public Cliente getCliente(){
-        return new Cliente("Jonatas", "jonataslaet@gmail.com");
+    public Cliente getCliente(Long id){
+        return clienteRepository.findById(id).orElse(null);
     }
 
     public List<Cliente> getClientes(){
-        List<Cliente> clientes = new ArrayList<Cliente>();
-        for (int i = 0; i < 10; i++) {
-            clientes.add(new Cliente("Cliente "+i+1, "j"+i+"@gmail.com"));
-        }
-        return clientes;
+        return clienteRepository.findAll();
     }
 }
