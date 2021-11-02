@@ -12,27 +12,22 @@ import java.util.Optional;
 public class ClienteGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private ClienteService clienteService;
 
     public Cliente getCliente(Long id){
-        return clienteRepository.findById(id).orElse(null);
+        return clienteService.findById(id);
     }
 
     public List<Cliente> getClientes(){
-        return clienteRepository.findAll();
+        return clienteService.findAll();
     }
 
     public Cliente saveCliente(Long id, String nome, String email){
         Cliente c = new Cliente(id, nome, email);
-        return clienteRepository.save(c);
+        return clienteService.save(c);
     }
 
     public Boolean deletarCliente(Long id){
-        Optional<Cliente> clienteInTheDatabase = clienteRepository.findById(id);
-        if (!clienteInTheDatabase.isPresent()){
-            return false;
-        }
-        clienteRepository.deleteById(id);
-        return true;
+        return clienteService.deleteById(id);
     }
 }
