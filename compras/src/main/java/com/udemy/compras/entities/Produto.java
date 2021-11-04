@@ -1,4 +1,4 @@
-package com.udemy.compras;
+package com.udemy.compras.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,11 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteInput {
+public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String email;
+    private Float valor;
 }

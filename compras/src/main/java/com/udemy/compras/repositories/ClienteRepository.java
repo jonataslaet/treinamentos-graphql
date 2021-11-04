@@ -1,5 +1,6 @@
-package com.udemy.compras;
+package com.udemy.compras.repositories;
 
+import com.udemy.compras.entities.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

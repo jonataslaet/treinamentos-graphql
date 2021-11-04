@@ -1,4 +1,4 @@
-package com.udemy.compras;
+package com.udemy.compras.graphqls;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.springframework.beans.factory.annotation.Autowired;

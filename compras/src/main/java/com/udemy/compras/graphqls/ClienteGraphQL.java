@@ -1,13 +1,15 @@
-package com.udemy.compras;
+package com.udemy.compras.graphqls;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.udemy.compras.graphqls.inputs.ClienteInput;
+import com.udemy.compras.services.ClienteService;
+import com.udemy.compras.entities.Cliente;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class ClienteGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
